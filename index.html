@@ -4,214 +4,163 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AUexperience.com</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Calculadora Salarial - Yesid Bernal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-
-    <body>
-        <!-- Navbar -->
-        <div class="main" id="page-ini">
-            <div class="container-fluid">
-                <div class="row header text-center">
-                    <div class="col-4">AUexperience.com</div>
-                    <div class="col-4 d-none d-sm-block">País</div> 
-                    <div class="col-4">
-                        <!-- Example split danger button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger">Iniciar Sesion</button>
-                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu login">
-                                <li>Correo<input type="text" class="dropdown-item" id="user"></li>
-                                <li>Contraseña<input type="password" class="dropdown-item" id="password"></li>
-                                <li><input type="submit" class="submit" id="boton" value="login"></li>
-                        </div>
-
-                    </div>
+    <div class="container-fluid">
+        <header>
+            <div class="row header">
+                <div class="col-lg-6 titulo text-center">
+                    <h1>CalculadoraSalarial.com</h1>
+                </div>
+                <div class="col-lg-2 offset-lg-4 register">
+                    <button class="button d-none d-sm-block">Registrate</button>
                 </div>
             </div>
-            <div class="container-fluid navbar2">
-                <div class="row navbar1 align-items-center">
-                    <div class="col-4">
-                        <h1>La mejor solucion de movilidad para ti</h1>
-                        <h3>a los mejores precios</h3>
-                    </div>
-                    <div class="offset-4 col-4">
-                        <img src="images/Captura_logo2-removebg-preview.png"class="d-none d-lg-block" alt=""> 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main content -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Gestionar mi reserva</h1>
-                    <p>En nuestra empresa ofrecemos una amplia variedad de vehículos para alquilar, desde coches
-                        compactos
-                        hasta furgonetas de carga.</p>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <label for="tipo-vehiculo" class="form-label">Tipo de vehículo</label>
-                    <select class="form-select" id="tipo-vehiculo">
-                        <option selected>Selecciona un tipo de vehículo</option>
-                        <option value="coche">Coche</option>
-                        <option value="furgoneta">Furgoneta</option>
-                        <option value="moto">Moto</option>
-                    </select>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6 mb-3">
-                    <label for="fecha-inicio" class="form-label">Fecha de inicio</label>
-                    <input type="date" class="form-control" id="fecha-inicio">
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6 col-6 mb-3">
-                    <label for="fecha-fin" class="form-label">Fecha de fin</label>
-                    <input type="date" class="form-control" id="fecha-fin">
-                </div>
-                <div class="col-lg-2 col-md-5 col-sm-6 col-6 mb-3">
-                    <label for="dias-alquiler" class="form-label">Días de alquiler</label>
-                    <input type="number" class="form-control" id="dias-alquiler" min="1" max="30">
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary w-100">Buscar vehículos</button>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row" id="tot">
-                <div class="col-lg-2 check">
-                    <form id="miFormulario">
-                        <label>
-                            <input type="checkbox" id="seguro" name="seguro" value="0.05">
-                            Incluir seguro
-                        </label>
-                        <button id="refresh" class="btn btn-primary">Reiniciar</button>
-                    </form>
-                </div>
-                <div class="col-3 total2">
-                    <h3 id="name_user">Bienvenido</h3>
-                    <h3 id="usuario2"></h3>
-                </div>
-                <div class="col-lg-4 total2">
-                    <h3>Total</h3>
-                    <h3 id="total">0$</h3>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <h2 class="ve">Vehículos disponibles</h2>
+        </header>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="https://s1.1zoom.me/big0/994/BMW_2016_BMW_M2_Coupe_480418.jpg" class="card-img-top"
-                            alt="BMW Azul">
-                        <h5 class="card-title">BMW Azul</h5>
-                        <p class="card-text">Este coche es perfecto para aquellos que buscan un vehículo
-                            elegante y
-                            deportivo.</p>
-                        <a href="#page-ini"><input type="submit" id="bmw" class="btn btn-primary" value="650000"></a>
+            <div class="col-lg-6">
+                <form class="form-inline">
+                    <label class="mr-sm-2" for="salario">Salario mensual básico:</label>
+                    <input type="number" class="form-control mr-sm-2" id="salario"
+                        placeholder="Ingrese el salario mensual básico">
+
+                    <div class="form-group mr-sm-2">
+                        <label for="horas_diurnas">Horas extras diurnas:</label>
+                        <input type="number" class="form-control" id="horas_diurnas"
+                            placeholder="Ingrese las horas extras diurnas">
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="https://s1.1zoom.me/big0/846/Mercedes-Benz_GLE-Class_486471.jpg" class="card-img-top"
-                            alt="Mercedes Negro">
-                        <h5 class="card-title">Mercedes Negro</h5>
-                        <p class="card-text">Si buscas un coche elegante y cómodo, este Mercedes es perfecto
-                            para ti.
-                        </p>
-                        <a href="#page-ini"><input type="submit" id="mercedes" class="btn btn-primary"
-                                value="700000"></a>
+
+                    <div class="form-group mr-sm-2">
+                        <label for="horas_nocturnas">Horas extras nocturnas:</label>
+                        <input type="number" class="form-control" id="horas_nocturnas"
+                            placeholder="Ingrese las horas extras nocturnas">
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="https://3.bp.blogspot.com/-Gtsl-8uOp2o/WL5LDr9Wm2I/AAAAAAAAcQg/GS2-ay_mHZgx07z4aSbukfIqqgMd5fPugCLcB/s1600/twingo.verde.jpg"
-                            class="card-img-top" alt="Twingo Verde">
-                        <h5 class="card-title">Twingo Verde</h5>
-                        <p class="card-text">Si necesitas un coche compacto y fácil de manejar, este Twingo es
-                            una
-                            excelente opción.</p>
-                        <a href="#page-ini"><input type="submit" id="twingo" class="btn btn-primary" value="100000"></a>
+
+                    <div class="form-group mr-sm-2">
+                        <label for="horas_festivas">Horas extras festivas:</label>
+                        <input type="number" class="form-control" id="horas_festivas"
+                            placeholder="Ingrese las horas extras festivas">
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="https://th.bing.com/th/id/OIP.pjR7od4_U-mNkz0rpXOpRAHaEK?pid=ImgDet&rs=1"
-                            class="card-img-top" alt="Megane Rojo">
-                        <h5 class="card-title">Megane Rojo</h5>
-                        <p class="card-text">Este coche deportivo y elegante es ideal para aquellos que buscan
-                            un poco
-                            de diversión al conducir.</p>
-                        <a href="#page-ini"><input type="submit" id="megane" class="btn btn-primary" value="120000"></a>
+
+                    <div class="form-group mr-sm-2">
+                        <label for="horas_dominicales">Horas extras dominicales:</label>
+                        <input type="number" class="form-control" id="horas_dominicales"
+                            placeholder="Ingrese las horas extras dominicales">
                     </div>
-                </div>
+
+                    <div class="form-group mr-sm-2">
+                        <label for="dias_falto">Días que faltó:</label>
+                        <input type="number" class="form-control" id="dias_falto"
+                            placeholder="Ingrese los días que faltó">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="calcularNomina()">Calcular</button>
+                </form>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="https://a.ccdn.es/cnet/2018/10/09/35704954/160503603_g.jpg" class="card-img-top"
-                            alt="Chevrolet Gris">
-                        <h5 class="card-title">Chevrolet Gris</h5>
-                        <p class="card-text">Este coche es perfecto para aquellos que necesitan espacio y
-                            comodidad en
-                            su vehículo.</p>
-                        <a href="#page-ini"><input type="submit" id="chevrolet" class="btn btn-primary"
-                                value="150000"></a>
+            <div class="col-lg-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Salario mensual básico</td>
+                            <td>$ <span id="salario_mensual"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Horas extras diurnas</td>
+                            <td>$ <span id="valor_horas_diurnas"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Horas extras nocturnas</td>
+                            <td>$ <span id="valor_horas_nocturnas"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Horas extras festivas</td>
+                            <td>$ <span id="valor_horas_festivas"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Horas extras dominicales</td>
+                            <td>$ <span id="valor_horas_dominicales"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Días que faltó</td>
+                            <td>$ <span id="valor_dias_falto"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>$ <span id="subtotal"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Descuento por salud y pensión (8%)</td>
+                            <td>$ <span id="descuento_salud_pension"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total de la nómina</td>
+                            <td>$ <span id="total_nomina"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>El total es: <span class="totales" id="total"></span></h2>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2>Los egresos son: <span class="egresos" id="Tegresos"></span></h2>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-12 grafico1">
+                            <canvas id="grafico"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="bg-dark text-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>AUexperience</h3>
-                        <p>Somos una empresa dedicada a brindar experiencias únicas a nuestros clientes. Conoce
-                            más sobre nosotros y nuestras ofertas.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>Contacto</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle Falsa 123, Ciudad Ficticia</p>
-                        <p><i class="fas fa-envelope"></i> info@auexperience.com</p>
-                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>Síguenos</h3>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook fa-2x">Facebook</i></a>
-                            <a href="#"><i class="fab fa-twitter fa-2x">Twitter</i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x">Instagram</i></a>
-                        </div>
-                    </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="m-0 text-center text-md-start">© Derechos reservados 2023</p>
                 </div>
-                <hr>
-                <p class="text-center">&copy; 2023 AUexperience. Todos los derechos reservados.</p>
+                <div class="col-md-6">
+                    <p class="m-0 text-center text-md-end">Creado por Yesid Bernal</p>
+                </div>
             </div>
-        </footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled list-inline text-center text-md-start mb-0">
+                        <li class="list-inline-item"><a href="#" class="li">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#" class="li">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#" class="li">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled list-inline text-center text-md-end mb-0">
+                        <li class="list-inline-item"><a href="#" class="li">Política de privacidad</a></li>
+                        <li class="list-inline-item"><a href="#" class="li">Términos de uso</a></li>
+                        <li class="list-inline-item"><a href="#" class="li">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-        <script src="main.js"></script>
-    </body>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>
