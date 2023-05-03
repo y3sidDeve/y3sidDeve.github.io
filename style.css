@@ -60,7 +60,7 @@ body {
   @media screen and (max-width: 576px) {
     /* Para pantallas de hasta 576px de ancho */
     .titulo {
-      font-size: 1.5rem; /* Tamaño aún más reducido del título */
+      font-size: 0.3rem; /* Tamaño aún más reducido del título */
     }
   }  
 h1,
